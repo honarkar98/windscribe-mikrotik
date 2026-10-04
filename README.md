@@ -20,7 +20,7 @@ The IP lists are automatically fetched from [tn3w/Windscribe-IPs](https://github
 ```routeros
 # 1. Fetch the RSC file from GitHub
 /tool fetch \
-    url="https://raw.githubusercontent.com/YOUR_USER/windscribe-mikrotik-rsc/main/windscribe.rsc" \
+    url="https://raw.githubusercontent.com/honarkar98/windscribe-mikrotik/main/windscribe.rsc" \
     dst-path=windscribe.rsc \
     mode=https
 
@@ -43,7 +43,7 @@ Run the update daily at 3 AM:
 
 ```routeros
 /system/scheduler/add name="windscribe-update-daily" \
-    on-event="/tool fetch url=\"https://raw.githubusercontent.com/YOUR_USER/windscribe-mikrotik-rsc/main/windscribe.rsc\" dst-path=windscribe.rsc mode=https;\
+    on-event="/tool fetch url=\"https://raw.githubusercontent.com/honarkar98/windscribe-mikrotik/main/windscribe.rsc\" dst-path=windscribe.rsc mode=https;\
     /ip firewall address-list remove [find list=\"windscribe-servers\"];\
     /ip firewall address-list remove [find list=\"windscribe-entry\"];\
     /import file-name=windscribe.rsc;\
